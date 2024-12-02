@@ -40,7 +40,7 @@ const Login = () => {
       localStorage.setItem('loginToken', data.token);
       localStorage.setItem('roomId', data.roomId);
       window.location.reload();
-      navigate('/dashboard'); // Redirect to dashboard or another page
+     
     } catch (err) {
       if (err.message === 'Invalid email or password') {
         alert('You entered the wrong email or password. Please try again.');
