@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { API_URI } from '../../data/apiPath';
 
 const Login = () => {
@@ -8,7 +7,7 @@ const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -40,6 +39,7 @@ const Login = () => {
       alert('Login successful');
       localStorage.setItem('loginToken', data.token);
       localStorage.setItem('roomId', data.roomId);
+      window.location.reload();
       navigate('/dashboard'); // Redirect to dashboard or another page
     } catch (err) {
       if (err.message === 'Invalid email or password') {
